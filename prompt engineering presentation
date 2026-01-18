@@ -1,0 +1,195 @@
+                   ## prompt-engineering-practice-assignment-2-
+prompt engineering 
+         Common types / techniques (texanomic list)
+Zero-Shot prompt
+One-Shot
+Few-Shot prompt
+System-message prompt
+Role prompt
+Chain of thoughts (COT) prompt
+Self consistency / Voting prompt
+ReAct (reason+act) prompt
+Contextual prompt
+                   ## Describe All Types Of Prompt
+
+
+**ZERO-SHOT PROMPT:-
+        Give a clear instruction without example
+        Summarize the following paragraph in one sentence
+
+Example:-"Translate to french: The meeting start at 3 pm."
+
+
+**ONE-SHOT PROMPT:-
+         Provide a single example to guide 
+Instruction: Diye gaye topic par ek mukhtasir (short) aur professional email likhein.
+
+Example:-
+Topic:" Meeting for Project Update"
+Email:
+Subject:- Meeting Request: Project Alpha Update
+Dear Team,
+I would like to schedule a brief call tomorrow at 10 AM to discuss our progress on Project Alpha. Please let me know if you are available.
+Best regards,
+Management
+Task:-
+Topic:- Requesting 2 days leave for brother's wedding
+Email:-
+AI ka Expected Result:-
+Subject: Leave Request: Family Wedding (January 20-21)
+Dear Manager,
+I am writing to request a two-day leave on January 20th and 21st to attend my brother's wedding. I will ensure all my pending tasks are completed before I leave.
+Best regards,
+[HAREEM MUTAHAR]
+
+
+**FEW-SHOT PROMPT:-
+         provides a simple labelled example in the prompt so the moddle inferse the mapping.
+
+Example:-
+Example 1: "Mera order abhi tak nahi mila, 10 din ho gaye hain!" -> Sentiment: Negative | Urgency: High
+Example 2: "Product ki quality achi hai, shukriya." -> Sentiment: Positive | Urgency: Low
+Example 3: "Kya ye item blue color mein mil sakta hai?" -> Sentiment: Neutral | Urgency: Medium
+Task: "Payment cut gayi hai lekin confirmation email nahi aayi, please check karein." -> Sentiment: AI resut Negative | Urgency: High honi chahye..
+
+
+**SYSTEM-MESSAGE PROMPT:-
+          Use a high level-language instructions(or a sustem message) that define behavior, constrains,tone.
+
+Example:-"You are an expert editor your answer should always be in point . produce concise formal writer.
+User input:"The user input Hareem mutahar, aged28, in matric O'levels, lives in karachi,"
+
+
+
+**ROLE PROMPTING:-
+         Ask the modle to adopt a role to change style knowledge framming, or behavior.
+you are a senior data science explain this to a product manager.
+EXAMPLE:-
+Role       "Act as a general physician doctor"
+Task       "guide about pain headache"
+Format     "provide a summary in a passage format "
+
+
+
+
+**CONTEXTUAL PROMPTING:-
+             Contextual prompting is the practice of providing the AI with specific background information, constraints, and situational details to ensure the response is tailored to a precise scenario rather than being generic. 
+
+EXAMPLE:-
+CONTEXT:"Our client is a startup based in Karachi launching a high-protein, vegan meal-prep service for busy remote workers who spend roughly 20.000/month on convenience."
+CONSTRAINTS:"Do not mention generic 'health benefits.' Focus exclusively on time-saving and locally sourced ingredients from Sindh." 
+TASK:"Write a three-sentence marketing slogan for an Instagram ad that highlights why this is better than cooking at home." 
+         
+           
+           ## ADVANCED PROMPTING STRATEGITIES
+**CHAIN OF THOUGHTS:-
+           Chain-of-Thought (CoT) prompting guides an AI to "show its work" by breaking down complex problems into logical, intermediate steps. By 2026, this technique has evolved from simple instructions to structured frameworks that significantly improve accuracy and transparency in reasoning. 
+
+EXAMPLE:-
+#first example:-
+Start: 10 apples.
+Subtraction: 10 - 2 (neighbor) - 2 (repairman) = 6 apples.
+Addition: 6 + 5 (new purchase) = 11 apples.
+Final Subtraction: 11 - 1 (eaten) = 10 apples.
+AI Answer is: 10. 
+
+#SECOND EXAMPLE:-
+ I have 67 apples she ates 40 now how many i have ? 
+ lets thing step by step:-
+ Step 1: Identify the starting amount of apples.You started with 67 apples.
+ Step 2: Identify the action (eating) and the quantity removed."She ates 40" means 40 apples were subtracted from the total.
+ Step 3: Perform the calculation.The operation is subtraction: \(67-40\).
+ Step 4: Determine the final result.\(67-40=27\). Final Answer: You have 27 apples left.
+ AI Answer is: 27 apples left
+
+
+ **SELF CONSISTENCY:-
+         Self-consistency is an advanced prompting technique that improves reasoning accuracy by generating multiple independent reasoning paths for the same problem and selecting the final answer based on a majority vote. 
+
+Example:-
+Prompt: "When I was 6, my sister was half my age. Now I am 70. How old is my sister?"
+AI ANSWER IS:-
+Path 1 (Age Gap Logic):Step 1: At age 6, your sister was half your age (\(6/2=3\)).
+Step 2: The age difference is \(6-3=3\) years.
+Step 3: This 3-year gap remains constant.
+Step 4: Now you are 70, so she is \(70-3=67\).
+Final Answer: 67.Path 2 (Elapsed Time Logic):
+Step 1: Your sister was 3 when you were 6.
+Step 2: The time passed since then is \(70-6=64\) years.
+Step 3: Your sister's current age is her starting age plus the years passed (\(3+64=67\)).
+Final Answer: 67.Path 3 (Ratio Error - common pitfall):
+Step 1: The problem states she was half your age.
+Step 2: Since you are now 70, half of 70 is 35.
+Final Answer: 35 (Incorrect, as age ratios change while gaps stay constant). 
+Majority Vote Result Path 1: 67Path 2: 67Path 3: 35
+
+
+**STEP BACK PROMPTING:-
+           Step-back prompting is a two-phase technique where you first ask a high-level, abstract question to retrieve general principles before addressing a specific, complex problem. Unlike Chain of Thought, which breaks a problem into linear steps, step-back prompting shifts the focus to overarching concepts to ground the final reasoning.
+EXAMPLE:-
+Specific Question: "How do I reduce user churn for my specific mobile app?"
+Step-Back (Abstraction): "What are the major universal factors that affect user churn in mobile applications?"
+Reasoning Phase: The model lists general factors like pricing, user experience, and competition. It then applies these high-level factors to provide a structured recommendation for the specific app. 
+AI ANSWER:-
+1.Step-Back (Abstraction): Universal Churn Factors
+Before looking at your specific app, we identify the core reasons why users leave mobile platforms globally:
+Time-to-Value (TTV): How quickly a user realizes the app's benefit after downloading.
+Onboarding Friction: High effort required to sign up or learn the interface.
+Performance Stability: Crashes, slow load times, or excessive battery drain.
+Engagement Loops: Lack of "hooks" (notifications, rewards, or new content) that bring users back.
+Value vs. Cost: Whether the subscription price or "attention cost" outweighs the utility.
+
+2. Reasoning Phase: Application to Your Specific App
+Using the principles above, here is a structured recommendation to reduce your churn:
+Audit the "Aha! Moment": Identify the one action that correlates with long-term retention (e.g., for a fitness app, it might be logging the first workout). Streamline the UI so users reach this moment in under 60 seconds.
+Personalized Re-engagement: Don't send generic push notifications. Use 2026 AI-driven triggers based on individual behavior—if a user stops halfway through a task, send a supportive reminder, not a sales pitch.
+Performance Optimization: Use the Google Firebase Performance Monitoring tool to track latency. In 2026, users expect "instant" interactions; a 3-second delay can increase churn by 50%.
+In-App Feedback Loops: Implement a "Cancelation Flow" survey. When a user tries to delete their account or unsubscribe, offer a one-time discount or a "pause" option instead of a hard exit.
+
+3. Final Conclusion
+To reduce churn, you must bridge the gap between user expectation and actual utility. If your app is high-utility but high-friction (complex), you will lose users. If it is low-friction but low-utility (boring), you will also lose them.
+What is the specific category of your app (e.g., Fintech, Gaming, SaaS)? This detail allows me to apply the most relevant 2026 industry benchmarks to your strategy.
+
+
+**ReAct PROMPTING:-
+        ReAct (Reason + Act) is a prompting technique where the AI combines logical reasoning (Chain of Thought) with external actions (searching the web or using tools). It follows a cycle of Thought → Action → Observation.
+
+EXAMPLE:-
+Question:- which is the best seller company in Japan & how many product they sell in 2024?
+
+AI ANSWER:-
+Thought: I need to identify the top-selling company in Japan for 2024 and retrieve their total sales figures for that year. I will focus on revenue-based ranking and unit sales for the most dominant industry in Japan, which is automotive.
+*Action: Search for "best selling company in Japan 2024" and "Toyota 2024 sales volume Japan."
+*Observation: Research indicates that Toyota Motor Corporation remained the best-selling company in Japan in 2024 by both revenue and market share. Despite a challenging year marked by domestic production halts due to certification issues, Toyota maintained its lead over competitors like Suzuki and Honda. 
+*Final Answer:
+Toyota Motor Corporation was the best-selling company in Japan in 2024.
+Total Products Sold (Domestic): Toyota sold approximately 1,441,842 vehicles (Toyota and Lexus brands) in Japan in 2024. When including its subsidiaries Daihatsu and Hino Motors, the total domestic group sales reached 1,850,263 units.
+Total Products Sold (Global): Globally, the Toyota Group sold a total of 10,821,480 vehicles in 2024, maintaining its position as the world's top-selling automaker for the fifth consecutive year.
+Revenue: The company reported an annual revenue of approximately $308.57 billion to $329 billion USD for the 2024 period. 
+The Toyota Corolla was the top-selling individual car model in Japan during 2024. 
+
+
+
+    
+                            ##BEST EXAMPLE OF EFFECTIVE PROMPT:-
+#1.BE SPECIFIC & CLEAR:-
+#2.PROVIDE EXAMPLE WHEN POSSIBLE:-
+#3.USE ACTION VERB:-
+#4.STRUCTURE YOUR PROMPT:-
+             |Task|
+             |Contex|
+             |Format|
+             |Example|
+#5.USE INSTRUCTION OVER CONTRAINS:-
+                            ##COMMON PITFALLS & HOW TO AVOID:-
+#1.AMBIGOUS INSTRUCTIONS:-
+#2.CONTRADICTORY INSTRUCTIONS:-
+#3.TOO MANY CONSTRAINS:-
+#4.IGNORING TOKEN LIMITS:-
+#5.NOT TESTING VARIATIONS:-
+
+
+
+
+
+
